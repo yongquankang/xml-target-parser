@@ -1,0 +1,43 @@
+<!--
+	<This is a comment example as well>
+
+	<To parse the config file correctly, following the RULES:>
+	<1.Comments MUST be enbraced by Greater Than sign & Less Than sign>
+	<2.Multiple values MUST be separated by comma>
+	<3.BSP name should be unique, though the code has a filter, which takes
+	care the first item only>
+	<4.The format of the TAG MUST be>VALUE" with a prefix TAG name>
+	<5.for requireUtils, e2fsck require reboot, it must be put at the end of the list>
+-->
+<system>
+	<srcPath>
+		<cgel6.0>http://10.75.80.171/svn/CGEL_V6.x_yocto/branches/CGEL_V6.x_yocto</cgel6.0>
+		<busybox>http://10.75.80.149/svn/ZXEMBSYS_TSP_KIDE_REPOS/trunk/busybox</busybox>
+		<defconfig>http://10.75.80.171/svn/OS_TEST_REPOS/trunk/ZXEmbsys_CGEL/backup/defconfig</defconfig>
+		<testsuite>http://10.75.80.171/svn/OS_TEST_REPOS/trunk/ZXEmbsys_CGEL/backup/autotest/testsuites</testsuite>
+		<utils>http://10.75.80.171/svn/OS_TEST_REPOS/trunk/ZXEmbsys_CGEL/backup/CI/autoCompile/compileUsrSpace/packages</utils>
+		<tools>http://10.75.80.171/svn/OS_TEST_REPOS/trunk/ZXEmbsys_CGEL/backup/autotest/testsuites/tools</tools>
+	</srcPath>
+
+	<serverConf>
+		<nfsserver>192.168.1.190</nfsserver>
+		<compBldRoot>/home/cgelNfsRoot/cgel</compBldRoot>
+		<compOutputRoot>/home/cgelNfsRoot/output</compOutputRoot>
+		<toolchainDir>/home/cgelNfsRoot/toolchain</toolchainDir>
+	</serverConf>
+<!--
+	<bspName name="MARVELL-DEMO-ARMADA370" kernelVer="cgel4.0">
+		<kernel arch="arm" subArch="CortexA9"/>
+		<toolchain kernelToolchain="armeb-unknown-linux-gnueabi-@armeb_eabi_gcc4.5.2_glibc2.13.0_fp_be8" busyboxToolchain="armeb-unknown-linux-gnueabi-@armeb_eabi_gcc4.5.2_glibc2.13.0_fp_be8"/>
+		<target ipAddr="192.168.1.110" image="uImage" fstype="ramdisk" endianness="big"/>
+		<bootT boot="" kexec_dtb="" kexec_flag=""/>
+	</bspName>
+-->
+	<bspName name="c12-imx8-dqx@customer-C12" kernelVer="cgel6.0">
+		<kernel baseline="4.4.97-rt110" arch="arm64" subArch="CortexA35"/>
+		<toolchain kernelToolchain="aarch64-linux-gnu-@aarch64_eabi_gcc6.2.0_glibc2.24.0_fp" busyboxToolchain="arm-linux-gnueabihf-@arm_eabi_gcc6.2.0_glibc2.24.0_fp"/>
+		<target ipAddr="192.168.1.166" image="uImage" fstype="ramdisk"/>
+		<bootT boot="" kexec_dtb="" kexec_flag=""/>
+	</bspName>
+
+</system>
